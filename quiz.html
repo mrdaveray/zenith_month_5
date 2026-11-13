@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Month 5 KSB Knowledge Check</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1F3864;--teal:#2E75B6;--light:#EAF2FB;--bg:#F6F8FB;--line:#E1E6EE;--text:#1d2433;--muted:#5b6578;--green:#2E8B57;--amber:#D98E04;--red:#C0392B}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55}
+header{background:var(--navy);color:#fff;padding:20px 24px}
+header .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+header h1{margin:4px 0 2px;font-size:22px}
+header p{margin:0;opacity:.85}
+main{max-width:760px;margin:0 auto;padding:24px 18px 60px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:14px 0}
+h2{color:var(--navy);margin:0 0 8px}
+.muted{color:var(--muted)}
+.btn{background:var(--teal);color:#fff;border:0;border-radius:9px;padding:11px 20px;font:inherit;font-weight:600;cursor:pointer}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.ghost{background:#fff;color:var(--teal);border:1px solid var(--teal)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+label.lbl{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+input[type=text]{width:100%;max-width:360px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;font:inherit}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:12px}
+.types div{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg)}
+.types b{display:block;color:var(--navy)}
+.topbar{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+.bar span{display:block;height:100%;background:var(--teal);transition:width .3s}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--light);color:var(--navy);margin-right:6px}
+.tag.ksb{background:var(--navy);color:#fff}
+.scenario{background:var(--light);border-left:4px solid var(--teal);border-radius:8px;padding:12px 14px;margin:12px 0}
+.q{font-weight:600;font-size:17px;margin:12px 0 6px}
+.hint{font-size:13px;color:var(--muted);margin:0 0 10px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:2px solid var(--line);background:#fff;border-radius:10px;padding:12px 14px;font:inherit;cursor:pointer;display:flex;gap:10px;align-items:flex-start;color:var(--text)}
+.opt:hover:not(:disabled){border-color:var(--teal)}
+.opt .l{font-weight:700;color:var(--teal);min-width:18px}
+.opt .box{width:18px;height:18px;border:2px solid var(--teal);border-radius:4px;flex:none;margin-top:2px;display:grid;place-items:center;font-size:12px;color:#fff}
+.opt.sel{border-color:var(--teal);background:var(--light)}
+.opt.sel .box{background:var(--teal)}
+.opt.right{border-color:var(--green);background:#E8F5EE}
+.opt.wrong{border-color:var(--red);background:#FBEAEA}
+.opt.missed{border-color:var(--green);border-style:dashed}
+.opt:disabled{cursor:default}
+.order{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.order li{display:flex;align-items:center;gap:10px;border:2px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;cursor:grab;user-select:none}
+.order li.dragging{opacity:.5;border-color:var(--teal)}
+.order li.over{border-color:var(--teal);background:var(--light)}
+.order li .n{font-weight:700;color:var(--teal);min-width:20px}
+.order li .grip{color:var(--muted);font-size:18px;line-height:1}
+.order li .txt{flex:1}
+.order li .mv{display:flex;gap:4px}
+.order li .mv button{border:1px solid var(--line);background:#fff;border-radius:6px;width:32px;height:30px;cursor:pointer;font-size:14px;color:var(--navy)}
+.order li .mv button:disabled{opacity:.3;cursor:default}
+.order.locked li{cursor:default}
+.order li.right{border-color:var(--green);background:#E8F5EE}
+.order li.wrong{border-color:var(--red);background:#FBEAEA}
+.order li .should{font-size:12px;color:var(--red);font-weight:600;white-space:nowrap}
+.feedback{margin-top:14px;border-radius:10px;padding:12px 14px}
+.feedback.ok{background:#E8F5EE;border:1px solid #BFE3CF}
+.feedback.no{background:#FBEAEA;border:1px solid #F0C4C0}
+.feedback b{display:block;margin-bottom:4px}
+.score{font-size:44px;font-weight:700;color:var(--navy);margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;background:var(--navy);color:#fff;padding:8px 10px}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+.mini{height:8px;background:var(--line);border-radius:99px;overflow:hidden;min-width:80px}
+.mini span{display:block;height:100%}
+.review{font-size:14px;border-bottom:1px dashed var(--line);padding:10px 0}
+.review:last-child{border-bottom:0}
+.note{font-size:13px;color:var(--muted)}
+textarea.out{width:100%;min-height:180px;font:13px/1.4 ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:9px;padding:10px}
+button:focus-visible,input:focus-visible,li:focus-visible{outline:3px solid #7FC4FF;outline-offset:2px}
+@media(max-width:560px){.score{font-size:36px}.order li .grip{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="k">Level 4 AI and Automation Practitioner (ST1512) · Month 5</div>
+  <h1>KSB Knowledge Check</h1>
+  <p>Stakeholder Engagement, Collaboration and User Needs</p>
+</header>
+<main>
+  <section class="card" id="start">
+    <h2>Test your Month 5 knowledge</h2>
+    <p class="muted">20 questions on stakeholder engagement, user needs, safe AI use, requirements and communication. You get feedback after each answer. Your results are sent to your trainer at the end.</p>
+    <div class="types">
+      <div><b>Single answer</b>Choose the one best answer.</div>
+      <div><b>Choose two</b>Two answers are correct. Pick both.</div>
+      <div><b>Put in order</b>Drag the cards, or use the arrows, into the right order.</div>
+    </div>
+    <div style="margin-top:16px">
+      <label class="lbl" for="name">Your full name</label>
+      <input type="text" id="name" autocomplete="name" placeholder="e.g. Jo Bloggs">
+    </div>
+    <div class="row"><button class="btn" id="go">Start the quiz</button></div>
+  </section>
+
+  <section class="card" id="quiz" hidden>
+    <div class="topbar"><span id="qnum"></span><span id="qscore"></span></div>
+    <div class="bar"><span id="qbar"></span></div>
+    <div id="qtags" style="margin-top:10px"></div>
+    <div id="qscen"></div>
+    <div class="q" id="qtext"></div>
+    <p class="hint" id="qhint"></p>
+    <div id="qbody"></div>
+    <div id="qfb"></div>
+    <div class="row">
+      <button class="btn" id="check" disabled>Check answer</button>
+      <button class="btn" id="next" hidden>Next question</button>
+    </div>
+  </section>
+
+  <section class="card" id="end" hidden>
+    <h2>Your results</h2>
+    <div class="score" id="final"></div>
+    <p id="verdict"></p>
+    <table id="ksbTable"></table>
+    <div class="row">
+      <button class="btn" id="email">Email my results</button>
+      <button class="btn ghost" id="copy">Copy my results</button>
+      <button class="btn ghost" id="again">Try again</button>
+    </div>
+    <p class="note" id="sendNote">Your email app opens with your results written in. Press Send without changing the subject line.</p>
+    <textarea class="out" id="outText" readonly hidden aria-label="Results text"></textarea>
+    <h2 style="margin-top:22px;font-size:18px">Review</h2>
+    <div id="reviewList"></div>
+  </section>
+</main>
+
+<script>
+/* Trainer setting: results are emailed to this address */
+const RESULTS_EMAIL = 'dave@we-are-zenith.com';
+
+const KSB = {K19:"Stakeholder engagement and adoption",K21:"Supporting users to understand, trust and use AI safely",K22:"Gathering and using user needs and requirements",S4:"Communicating in ways that suit the audience",S20:"Supporting engagement and adoption",S22:"Adapting communication and support for different users",B3:"Working professionally and collaboratively",B4:"Supporting others through digital change"};
+
+/* type: one | two | order. For one: a = index of correct option. For two: a = [i, j]. For order: items given in the correct order. */
+const Q = [
+ {t:"one",k:["K19"],s:"Priya is planning automated interview booking. The data protection lead must approve a DPIA before anything goes live, but will never use the booking tool.",q:"Where should Priya place the data protection lead on Mendelow's Matrix?",
+  o:["Manage closely, because they will use the new booking tool every single day","Keep satisfied, because they can block approval but have low daily interest","Keep informed, because they care about the change but have little power","Monitor, because they have little power and little interest in the change"],a:1,
+  e:"The data protection lead has high power because they can stop go-live, but low day-to-day interest. Keep them satisfied with clear, early information about how data is used."},
+ {t:"one",k:["K19","S20"],s:"A recruitment administrator's daily work will change completely, but they have no say in budgets or approval.",q:"Which engagement approach fits this stakeholder best?",
+  o:["Keep satisfied: high power, but low interest in the daily changes","Manage closely: high power and high interest in the proposed change","Keep informed: low power, but high interest in the proposed change","Monitor: low power and low interest in the proposed change"],a:2,
+  e:"Low power but very high interest. Keep them informed and involve them in testing. People whose work changes most are often your best source of user needs."},
+ {t:"one",k:["K22"],s:"A user says: “I spend hours retyping candidate details into three systems.”",q:"Which of these is a clear user requirement?",
+  o:["Staff need to spend much less time on repetitive admin tasks each week","The system must copy approved form details into the ATS without retyping","We should buy an AI tool that can automate all recruitment admin work","Candidates would prefer a faster and more modern application process"],a:1,
+  e:"A requirement says specifically what the solution must do, and can be tested. The first option is a need, the third is a solution, and the fourth is an assumption about candidates."},
+ {t:"one",k:["K22"],s:"You sent a Microsoft Form to 40 hiring managers. Six replied.",q:"What should your report say about this evidence?",
+  o:["That six replies prove the findings are valid for every hiring manager","That six replies may not reflect the views of all forty hiring managers","That a survey always gives stronger evidence than a short interview","That the findings should be removed because the sample was too small"],a:1,
+  e:"The brief asks you to explain the limitations of your evidence. A small sample is still useful, but say honestly what it cannot tell you, and how you might fill the gap."},
+ {t:"one",k:["K22","B3"],q:"You want to find out where delays and workarounds really happen. Which method gives the most reliable evidence?",
+  o:["Send a Microsoft Form asking staff to rate the process out of ten","Observe the process while staff complete it on a normal working day","Ask the project sponsor to describe how they think the process works","Use an AI tool to predict where delays are most likely to happen"],a:1,
+  e:"Observation shows what people actually do, not what they say or what a manager believes. Workarounds are often invisible in surveys."},
+ {t:"one",k:["S4","S22"],s:"Hiring managers are not technical. They are worried the new booking tool will take control of their diaries.",q:"What is the best way to communicate the change to them?",
+  o:["Share the API documentation so they can see exactly how it works","Give a short demo of what changes for them and what stays the same","Send an email listing the connectors, data fields and permissions","Wait until go-live and let them learn by using the new system"],a:1,
+  e:"Non-technical stakeholders need to see what changes for them, what stays the same and where they stay in control. Technical detail suits IT, not hiring managers."},
+ {t:"one",k:["K21"],s:"The admin team are worried that AI-drafted candidate emails will contain mistakes.",q:"Which action is most likely to build their trust?",
+  o:["Tell them AI tools are now accurate enough not to need checking","Keep a human approval step and show them example outputs first","Switch the AI emails on quietly so the team does not feel worried","Ask IT to present the model's technical accuracy statistics to them"],a:1,
+  e:"Trust grows when people can see the outputs and know a person stays accountable. Human review also protects candidates and the organisation."},
+ {t:"one",k:["K21","S20"],q:"Which of these prompts is safe to put into an approved AI tool?",
+  o:["“Summarise this feedback from Jo Smith and Ali Khan in our HR team today.”","“Draft interview questions for hiring managers about a booking process.”","“Here are 20 candidate emails with names. Sort them into themes.”","“Rewrite this complaint from our client, Acme Ltd, in plain English.”"],a:1,
+  e:"Only the second prompt uses a general description. The others include personal names, candidate data or a named client, which must not go into AI tools."},
+ {t:"one",k:["S20"],q:"Which of these does the brief NOT ask for as evidence of your AI use?",
+  o:["The prompt or prompts you entered into the tool","What you accepted, changed or rejected and why","A screenshot of the AI tool's pricing and plans","How you kept personal data out of the AI tool"],a:2,
+  e:"Section 4 asks for the tool used, your prompts, what the AI produced, how you checked it, what you accepted, changed or rejected, and how you kept data safe. Pricing is not needed."},
+ {t:"one",k:["B4"],s:"A colleague says: “This automation is just going to replace my job.”",q:"What is the most supportive response?",
+  o:["Tell them the worry is unfounded and the decision has already been made","Listen, explain what will change, and invite them to help test the idea","Pass the comment to their manager as an example of resistance to change","Promise them that AI will never be able to do any part of their role"],a:1,
+  e:"Resistance often comes from uncertainty. Listening, being honest about what changes and involving people builds trust, and it is good evidence of B4."},
+ {t:"one",k:["S20"],s:"Most stakeholders support Priya's idea. However, the data protection lead has an unresolved concern about where candidate data is stored, and the booking page has not been checked for accessibility.",q:"Which recommendation fits the evidence best?",
+  o:["Proceed to solution design","Proceed with further engagement","Pause for additional review","Reject or replace the idea"],a:2,
+  e:"The brief says to pause when there are unresolved concerns, approval issues or accessibility issues. The idea is still promising, but these must be resolved before design."},
+ {t:"one",k:["K22"],q:"Using MoSCoW, which requirement is a Must have for the first version?",
+  o:["A dashboard showing the average time to interview each month","Every AI-drafted email is approved by a recruiter before sending","SMS reminders sent to each candidate on the day before interview","A choice of colour themes for the candidate booking web page"],a:1,
+  e:"Must haves cover safety, compliance, human review and basic use. The others may add value, but the first version can work without them."},
+ {t:"two",k:["K19"],q:"Which TWO of these are technical stakeholders in Priya's project?",
+  o:["IT support and service desk team","Applicant tracking system owner","Recruitment administrators","Candidates applying for roles","Hiring managers on interview panels"],a:[0,1],
+  e:"Technical stakeholders focus on systems, data, security and support. The others are non-technical: they care about usability, workload, confidence and fairness."},
+ {t:"two",k:["K22","S4"],q:"Which TWO are open, neutral questions to ask a stakeholder?",
+  o:["“Talk me through what happens after shortlisting.”","“What slows you down most in this process now?”","“Don't you think automation would save you time?”","“Would you agree the current process is quite poor?”","“Is AI the right answer for this kind of problem?”"],a:[0,1],
+  e:"Open, neutral questions let people describe their real experience. The others are leading or closed and push the answer you expect."},
+ {t:"two",k:["K21","S22"],s:"A colleague has low digital confidence and needs to start using the new process.",q:"Which TWO approaches adapt support well for them?",
+  o:["A supported trial with someone on hand to help","A short step-by-step guide in plain English","A link to the vendor's technical documentation","A request to complete online training on their own","A detailed list of system fields and permissions"],a:[0,1],
+  e:"Support should match the person. Low-confidence users benefit from plain language and someone alongside them, not technical documents or self-study."},
+ {t:"two",k:["S20","B3"],q:"Which TWO show that you used AI output critically?",
+  o:["Rejecting a suggested stakeholder group your organisation does not have","Adding a stakeholder the AI missed, based on your own process map","Copying the AI's stakeholder list into your report without changes","Asking the same AI tool to confirm that its own list is fully correct","Using the AI's suggestions instead of speaking to real stakeholders"],a:[0,1],
+  e:"The marker wants to see your judgement: what you kept, changed or rejected and why. AI supports your thinking but does not replace real stakeholder evidence."},
+ {t:"two",k:["B3"],q:"Which TWO are good evidence of working collaboratively?",
+  o:["Anonymised notes from a meeting that reviewed your process map","A requirement you changed because of feedback from users","A list of stakeholders you plan to contact at some point","A screenshot of your calendar showing meetings you booked","A copy of each stakeholder's full job description and role"],a:[0,1],
+  e:"Collaboration evidence shows you worked with people and that their input changed something. Plans, calendars and job descriptions do not show that."},
+ {t:"order",k:["K19","K22"],q:"Put the Month 5 stakeholder work into the right order.",
+  items:["Identify the stakeholders affected by the change","Map stakeholders by power and interest","Gather user needs, concerns and support needs","Turn feedback into clear requirements","Prioritise the requirements using MoSCoW","Plan engagement and communication for each group"],
+  e:"You need to know who is affected before you can map them, and gather their needs before writing requirements. The plan comes last because it uses everything before it."},
+ {t:"order",k:["K22"],q:"A stakeholder raises a concern. Put the steps for turning it into a requirement in order.",
+  items:["Record the concern in the stakeholder's own words","Work out what need or worry is behind the concern","Write a specific, testable requirement to address it","Give the requirement a MoSCoW priority","Explain the reason for the priority you chose"],
+  e:"This matches the five columns of the requirements table in section 7: stakeholder, feedback, requirement, priority and reason for priority."},
+ {t:"order",k:["K21","B4"],q:"Put these steps for helping users trust and use a new tool in a sensible order.",
+  items:["Explain what the tool does and does not do","Show a demonstration using dummy data","Let users try it in a supported trial","Back them up with a quick guide and a named contact","Listen through a feedback route and a review date"],
+  e:"People need to understand the change before they see it, see it before they try it, and have support and a way to give feedback once they are using it."}
+];
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+let order = [], qi = 0, results = [], cur = null;
+const store = { get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+
+$('#name').value = store.get('m5qName', '');
+$('#go').onclick = () => {
+  const n = $('#name').value.trim(); if (!n) { $('#name').focus(); $('#name').placeholder = 'Please add your name first'; return; }
+  store.set('m5qName', n); start();
+};
+function start() {
+  order = shuffle(Q.map((_, i) => i)).sort((a, b) => ({one:0,two:1,order:2}[Q[a].t] - {one:0,two:1,order:2}[Q[b].t]));
+  /* mix types a little: keep singles first half, then interleave */
+  const ones = order.filter(i => Q[i].t === 'one'), rest = shuffle(order.filter(i => Q[i].t !== 'one'));
+  order = []; ones.forEach((x, k) => { order.push(x); if (k % 2 === 1 && rest.length) order.push(rest.shift()); }); order.push(...rest);
+  qi = 0; results = [];
+  $('#start').hidden = true; $('#end').hidden = true; $('#quiz').hidden = false; render();
+}
+function render() {
+  const q = Q[order[qi]];
+  $('#qnum').textContent = `Question ${qi + 1} of ${Q.length}`;
+  $('#qscore').textContent = `Score: ${results.filter(r => r.ok).length}`;
+  $('#qbar').style.width = (qi / Q.length * 100) + '%';
+  $('#qtags').innerHTML = q.k.map(k => `<span class="tag ksb" title="${esc(KSB[k])}">${k}</span>`).join('') + `<span class="tag">${{one:'Single answer',two:'Choose two',order:'Put in order'}[q.t]}</span>`;
+  $('#qscen').innerHTML = q.s ? `<div class="scenario">${esc(q.s)}</div>` : '';
+  $('#qtext').textContent = q.q;
+  $('#qhint').textContent = {one:'Choose one answer.',two:'Choose exactly two answers.',order:'Drag the cards into order, or use the arrow buttons. Top is first.'}[q.t];
+  $('#qfb').innerHTML = ''; $('#next').hidden = true; $('#check').hidden = false;
+  const body = $('#qbody'); body.innerHTML = '';
+  if (q.t === 'order') {
+    let items = shuffle(q.items.map((t, i) => i)); while (items.every((v, i) => v === i)) items = shuffle(items);
+    cur = { q, items };
+    drawOrder(); $('#check').disabled = false;
+  } else {
+    const idx = shuffle(q.o.map((_, i) => i));
+    cur = { q, idx, sel: [] };
+    const wrap = document.createElement('div'); wrap.className = 'opts';
+    idx.forEach((oi, pos) => {
+      const b = document.createElement('button'); b.className = 'opt'; b.type = 'button';
+      b.innerHTML = (q.t === 'two' ? '<span class="box" aria-hidden="true"></span>' : `<span class="l">${'ABCDE'[pos]}</span>`) + `<span>${esc(q.o[oi])}</span>`;
+      b.setAttribute('aria-pressed', 'false');
+      b.onclick = () => {
+        if (q.t === 'one') { cur.sel = [oi]; }
+        else { cur.sel = cur.sel.includes(oi) ? cur.sel.filter(x => x !== oi) : (cur.sel.length < 2 ? [...cur.sel, oi] : [cur.sel[1], oi]); }
+        [...wrap.children].forEach((c, p) => { const on = cur.sel.includes(idx[p]); c.classList.toggle('sel', on); c.setAttribute('aria-pressed', String(on)); const bx = c.querySelector('.box'); if (bx) bx.textContent = on ? '✓' : ''; });
+        $('#check').disabled = q.t === 'one' ? cur.sel.length !== 1 : cur.sel.length !== 2;
+      };
+      wrap.append(b);
+    });
+    body.append(wrap); $('#check').disabled = true;
+  }
+}
+let dragFrom = null;
+function drawOrder(locked) {
+  const q = cur.q, ul = document.createElement('ol'); ul.className = 'order' + (locked ? ' locked' : '');
+  cur.items.forEach((it, pos) => {
+    const li = document.createElement('li'); li.draggable = !locked; li.tabIndex = locked ? -1 : 0;
+    const mark = locked ? (it === pos ? 'right' : 'wrong') : '';
+    if (mark) li.classList.add(mark);
+    li.innerHTML = `<span class="n">${pos + 1}</span>${locked ? '' : '<span class="grip" aria-hidden="true">☰</span>'}<span class="txt">${esc(q.items[it])}</span>` +
+      (locked ? (it !== pos ? `<span class="should">should be ${it + 1}</span>` : '') : `<span class="mv"><button type="button" aria-label="Move up" ${pos === 0 ? 'disabled' : ''}>▲</button><button type="button" aria-label="Move down" ${pos === cur.items.length - 1 ? 'disabled' : ''}>▼</button></span>`);
+    if (!locked) {
+      const [up, dn] = li.querySelectorAll('.mv button');
+      up.onclick = e => { e.stopPropagation(); move(pos, pos - 1); };
+      dn.onclick = e => { e.stopPropagation(); move(pos, pos + 1); };
+      li.addEventListener('keydown', e => { if (e.key === 'ArrowUp' && pos > 0) { e.preventDefault(); move(pos, pos - 1, true); } if (e.key === 'ArrowDown' && pos < cur.items.length - 1) { e.preventDefault(); move(pos, pos + 1, true); } });
+      li.addEventListener('dragstart', e => { dragFrom = pos; li.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; try { e.dataTransfer.setData('text/plain', String(pos)); } catch (x) {} });
+      li.addEventListener('dragend', () => li.classList.remove('dragging'));
+      li.addEventListener('dragover', e => { e.preventDefault(); li.classList.add('over'); });
+      li.addEventListener('dragleave', () => li.classList.remove('over'));
+      li.addEventListener('drop', e => { e.preventDefault(); li.classList.remove('over'); if (dragFrom !== null && dragFrom !== pos) move(dragFrom, pos); dragFrom = null; });
+    }
+    ul.append(li);
+  });
+  const body = $('#qbody'); body.innerHTML = ''; body.append(ul);
+}
+function move(from, to, keepFocus) {
+  const a = cur.items; const [x] = a.splice(from, 1); a.splice(to, 0, x); drawOrder();
+  if (keepFocus) { const li = document.querySelectorAll('.order li')[to]; if (li) li.focus(); }
+}
+$('#check').onclick = () => {
+  const q = cur.q; let ok, detail = '';
+  if (q.t === 'order') {
+    const right = cur.items.filter((it, pos) => it === pos).length; ok = right === q.items.length;
+    detail = ok ? '' : `${right} of ${q.items.length} in the right place. `;
+    drawOrder(true);
+    results.push({ i: order[qi], ok, mine: cur.items.map(i => q.items[i]) });
+  } else {
+    const correct = q.t === 'one' ? [q.a] : q.a;
+    ok = cur.sel.length === correct.length && cur.sel.every(s => correct.includes(s));
+    [...document.querySelectorAll('.opt')].forEach((c, p) => {
+      const oi = cur.idx[p]; c.disabled = true;
+      if (correct.includes(oi)) c.classList.add(cur.sel.includes(oi) ? 'right' : 'missed');
+      else if (cur.sel.includes(oi)) c.classList.add('wrong');
+    });
+    if (!ok && q.t === 'two') { const hit = cur.sel.filter(s => correct.includes(s)).length; detail = `You got ${hit} of 2. `; }
+    results.push({ i: order[qi], ok, mine: cur.sel.map(s => q.o[s]) });
+  }
+  $('#qfb').innerHTML = `<div class="feedback ${ok ? 'ok' : 'no'}"><b>${ok ? 'Correct.' : 'Not quite.'}</b>${esc(detail + q.e)}</div>`;
+  $('#qscore').textContent = `Score: ${results.filter(r => r.ok).length}`;
+  $('#check').hidden = true; $('#next').hidden = false; $('#next').textContent = qi === Q.length - 1 ? 'See my results' : 'Next question'; $('#next').focus();
+};
+$('#next').onclick = () => { qi++; if (qi >= Q.length) finish(); else { render(); window.scrollTo(0, 0); } };
+
+function byKsb() {
+  const m = {}; Object.keys(KSB).forEach(k => m[k] = [0, 0]);
+  results.forEach(r => Q[r.i].k.forEach(k => { m[k][1]++; if (r.ok) m[k][0]++; }));
+  return m;
+}
+function finish() {
+  $('#quiz').hidden = true; $('#end').hidden = false; window.scrollTo(0, 0);
+  const s = results.filter(r => r.ok).length, pct = Math.round(s / Q.length * 100);
+  $('#final').textContent = `${s} / ${Q.length}`;
+  $('#verdict').textContent = pct >= 80 ? 'Strong understanding of the Month 5 content. You are ready to write your report.' : pct >= 60 ? 'Good foundation. Review the KSBs below where you dropped marks before you write those sections.' : 'Worth revisiting the session slides, especially the KSBs with lower scores, before you start your report.';
+  const m = byKsb();
+  $('#ksbTable').innerHTML = '<tr><th>KSB</th><th>Area</th><th>Score</th><th></th></tr>' + Object.entries(m).filter(([, v]) => v[1]).map(([k, [c, t]]) => {
+    const p = c / t, col = p >= .8 ? 'var(--green)' : p >= .5 ? 'var(--amber)' : 'var(--red)';
+    return `<tr><td><b>${k}</b></td><td>${esc(KSB[k])}</td><td>${c}/${t}</td><td><div class="mini"><span style="width:${p * 100}%;background:${col}"></span></div></td></tr>`;
+  }).join('');
+  $('#reviewList').innerHTML = results.map((r, n) => {
+    const q = Q[r.i];
+    const ans = q.t === 'order' ? q.items.map((x, i) => `${i + 1}. ${x}`).join('<br>') : (q.t === 'one' ? esc(q.o[q.a]) : q.a.map(a => esc(q.o[a])).join('<br>'));
+    return `<div class="review"><b>${r.ok ? '✓' : '✗'} Q${n + 1}. ${esc(q.q)}</b><br><span class="note">Correct answer:</span><br>${q.t === 'order' ? ans : ans}</div>`;
+  }).join('');
+}
+function summary() {
+  const name = store.get('m5qName', '') || $('#name').value.trim();
+  const s = results.filter(r => r.ok).length, m = byKsb();
+  const L = ['Month 5 KSB Knowledge Check results', '', `Name: ${name}`, `Date: ${new Date().toLocaleString('en-GB')}`, `Score: ${s} / ${Q.length} (${Math.round(s / Q.length * 100)}%)`, '', 'By KSB:'];
+  Object.entries(m).filter(([, v]) => v[1]).forEach(([k, [c, t]]) => L.push(`  ${k}: ${c}/${t}`));
+  L.push('', 'Questions missed:');
+  const miss = results.map((r, n) => [r, n]).filter(([r]) => !r.ok);
+  if (!miss.length) L.push('  None'); else miss.forEach(([r, n]) => L.push(`  Q${n + 1}: ${Q[r.i].q}`));
+  return { name, text: L.join('\n') };
+}
+$('#email').onclick = () => {
+  const { name, text } = summary();
+  let body = text; if (body.length > 1700) body = body.slice(0, 1700) + '\n...';
+  location.href = `mailto:${RESULTS_EMAIL}?subject=${encodeURIComponent('M5QUIZ | ' + name)}&body=${encodeURIComponent(body)}`;
+  $('#sendNote').textContent = `Your email app should now be open, addressed to ${RESULTS_EMAIL}. Press Send. If nothing opened, use Copy my results and email them to your trainer.`;
+};
+$('#copy').onclick = async () => {
+  const { text } = summary(), ta = $('#outText');
+  try { await navigator.clipboard.writeText(text); $('#sendNote').textContent = 'Copied. Paste your results into an email to your trainer.'; ta.hidden = true; }
+  catch (e) { ta.value = text; ta.hidden = false; ta.focus(); ta.select(); $('#sendNote').textContent = 'Copy was blocked. The text is selected below: press Ctrl+C or Cmd+C.'; }
+};
+$('#again').onclick = start;
+</script>
+</body>
+</html>
