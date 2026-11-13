@@ -1,0 +1,362 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Month 5 Assignment Guide: Stakeholder Engagement and User Needs Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1F3864;--teal:#2E75B6;--light:#EAF2FB;--bg:#F6F8FB;--card:#fff;--text:#1d2433;--muted:#5b6578;--line:#E1E6EE;--green:#2E8B57;--amber:#D98E04;--red:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.55}
+header{background:var(--navy);color:#fff;padding:22px 28px}
+header .kicker{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+header h1{margin:4px 0 2px;font-size:24px}
+header p{margin:0;opacity:.85}
+.progress-wrap{margin-top:14px;display:flex;align-items:center;gap:12px;max-width:520px}
+.bar{flex:1;height:8px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden}
+.bar span{display:block;height:100%;background:#7FC4FF;width:0;transition:width .3s}
+.progress-wrap small{white-space:nowrap;opacity:.9}
+.layout{display:grid;grid-template-columns:250px 1fr;min-height:calc(100vh - 120px)}
+nav{background:#fff;border-right:1px solid var(--line);padding:16px 10px;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+nav .grp{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:14px 10px 6px}
+nav button{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;background:none;border:0;padding:8px 10px;border-radius:8px;font:inherit;font-size:14px;color:var(--text);cursor:pointer}
+nav button:hover{background:var(--bg)}
+nav button.active{background:var(--light);color:var(--navy);font-weight:600}
+nav .tick{color:var(--green);font-weight:700}
+main{padding:28px;max-width:960px;min-width:0}
+.view{display:none}.view.active{display:block}
+h2{color:var(--navy);margin:0 0 6px;font-size:22px}
+h3{color:var(--teal);margin:22px 0 8px;font-size:16px}
+.lead{color:var(--muted);margin-top:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0}
+.tip{background:var(--light);border-left:4px solid var(--teal);border-radius:8px;padding:12px 16px;margin:14px 0}
+.tip b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}
+.chip{background:var(--navy);color:#fff;border-radius:99px;padding:2px 10px;font-size:12px;font-weight:600;cursor:pointer;border:0;font-family:inherit}
+.chip.s{background:var(--teal)}.chip.b{background:#6B5B95}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;transition:.15s}
+.tile:hover{border-color:var(--teal);box-shadow:0 2px 8px rgba(46,117,182,.12)}
+.tile .n{font-size:12px;color:var(--muted)}
+.tile .t{font-weight:600;color:var(--navy);margin:2px 0 6px}
+.tile .st{font-size:12px;color:var(--muted)}
+.tile.done{border-color:var(--green)}.tile.done .st{color:var(--green);font-weight:600}
+ul.check{list-style:none;padding:0;margin:6px 0}
+ul.check li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line)}
+ul.check li:last-child{border-bottom:0}
+ul.check input{margin-top:4px;width:17px;height:17px;accent-color:var(--teal);flex-shrink:0}
+ul.check label{cursor:pointer}
+ul.check input:checked+label{color:var(--muted);text-decoration:line-through}
+ul.plain{margin:6px 0;padding-left:20px}
+table{width:100%;border-collapse:collapse;font-size:14px;background:#fff}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 10px;font-weight:600}
+td{border-bottom:1px solid var(--line);padding:9px 10px;vertical-align:top}
+.tablewrap{overflow-x:auto}
+.peel{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.peel button{background:#fff;border:2px solid var(--line);border-radius:12px;padding:14px 8px;font:inherit;cursor:pointer;text-align:center}
+.peel button .L{font-size:26px;font-weight:700;color:var(--teal);display:block}
+.peel button.on{border-color:var(--teal);background:var(--light)}
+#peelOut{min-height:60px}
+.ex span{padding:1px 3px;border-radius:4px;transition:.2s}
+.ex span.hl{background:#FFE9A8}
+.rag{display:inline-block;padding:2px 10px;border-radius:99px;color:#fff;font-weight:600;font-size:12px}
+.rag.G{background:var(--green)}.rag.N{background:#6B7A86}.rag.A{background:var(--amber)}.rag.R{background:var(--red)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form label{font-size:13px;color:var(--muted);display:block;margin-bottom:3px}
+.form input,.form select,.form textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:14px}
+.form .full{grid-column:1/-1}
+.scores{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.btn{background:var(--teal);color:#fff;border:0;border-radius:8px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--teal);border:1px solid var(--teal)}
+.btn.sm{padding:4px 10px;font-size:12px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.warn{color:var(--red);font-size:13px;margin-top:6px}
+.done-btn{margin-top:16px}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px;opacity:0;transition:.3s;pointer-events:none;max-width:calc(100vw - 40px)}
+.toast.show{opacity:1}
+@media(max-width:780px){.layout{grid-template-columns:1fr}nav{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line);display:flex;overflow-x:auto;padding:8px}nav .grp{display:none}nav button{white-space:nowrap;width:auto}main{padding:18px}.peel{grid-template-columns:repeat(2,1fr)}.form{grid-template-columns:1fr}.scores{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Level 4 AI and Automation Practitioner (ST1512) · Month 5</div>
+  <h1>How to Write Your Month 5 Assignment</h1>
+  <p>Stakeholder Engagement and User Needs Review</p>
+  <div class="progress-wrap"><div class="bar"><span id="progBar"></span></div><small id="progTxt">0% complete</small></div>
+</header>
+<div class="layout">
+<nav id="nav"></nav>
+<main id="main"></main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KSB = {
+ K19:"Explain how stakeholder engagement supports successful AI and automation adoption.",
+ K21:"Explain how users can be supported to understand, trust and use AI or automation safely.",
+ K22:"Explain how user needs and requirements are gathered and used to inform digital, AI or automation solutions.",
+ S4:"Communicate with stakeholders using methods and language suitable for the audience.",
+ S20:"Support stakeholder engagement and adoption of an AI or automation opportunity.",
+ S22:"Adapt communication, support or engagement approaches for different users.",
+ B3:"Work professionally and collaboratively with others.",
+ B4:"Show a supportive approach to helping others engage with digital, AI or automation change."
+};
+const SECTIONS = [
+ {id:"s1",title:"Organisation and opportunity summary",ksb:["K19"],
+  intro:"Set the scene in a few short paragraphs. Say which theme you chose, what the process is and what your AI or automation idea is. Link back to Months 1 to 4, but do not repeat those reports.",
+  include:["Your chosen theme (A: HR, B: Recruitment, C: Leadership and Operations, D: Training and Learning Support)","The workplace area and the process or issue you are reviewing","Your AI, automation or process improvement opportunity","Who may use it, and who may approve, support or manage it","Who may be affected by the outcome","Why stakeholder engagement is needed before moving into solution design"],
+  marker:["A clear, brief link to your earlier months","A reason why people need to shape the idea before design starts"],
+  tips:["One sentence can do a lot of work: \"My Month 4 review showed the idea is feasible, but it assumed hiring managers will share their calendars. This report checks that with the people affected.\""]},
+ {id:"s2",title:"Stakeholder identification",ksb:["K19"],
+  intro:"List the people and groups connected to your idea, and explain why each one matters and what their interest in the change is.",
+  include:["People who use the current process","People who manage or own the process","People who provide information or data","People who approve changes","People who support the systems or tools","People affected by the output or decision","Technical and non-technical stakeholders","External stakeholders, where relevant (for example customers, candidates or a supplier)","Why each group matters and what its interest is"],
+  marker:["K19: a full range of stakeholders, not just managers","Each group explained: why it matters and what it cares about"],
+  tips:["Use role titles, never real names.","A table works well here: Stakeholder | Technical or non-technical | Their interest in the change | Why they matter."]},
+ {id:"s3",title:"Stakeholder mapping (Mendelow's Matrix)",ksb:["K19","S20"],
+  intro:"Place your stakeholders on Mendelow's Matrix by power and interest, then explain what level of engagement each group needs and why. The marks come from applying it to your idea, not from describing the matrix.",
+  include:["Manage closely: high power, high interest","Keep satisfied: high power, low interest","Keep informed: low power, high interest","Monitor: low power, low interest","For each group: the level of engagement needed and why","A picture of your completed matrix (in the report and the appendix)"],
+  marker:["K19 and S20: placements explained for THIS change","Example from the brief: a data protection lead may have high power because they can influence approval, while an admin user may have high interest because the automation changes their daily work"],
+  tips:["For every placement, finish the sentence \"They sit here because…\". If you cannot, rethink the placement."]},
+ {id:"s4",title:"Safe use of AI",ksb:["K21","S20","B3"],
+  intro:"Use an approved AI tool to help with part of your stakeholder work, and show exactly how you used it and checked it. AI supports your thinking. It does not replace real stakeholder evidence.",
+  include:["Name the AI tool you used","Show the prompt or prompts you used","Explain briefly what the AI produced","Explain how you checked, edited or improved the output","Say what you accepted, changed or rejected, and why","Explain how you made sure no personal, confidential or sensitive information was entered"],
+  marker:["All six pieces of evidence above","Your own judgement: what you changed or rejected, and why"],
+  tips:["Good uses: a first list of stakeholder groups, interview or Form questions, a plain-language explanation, technical and non-technical versions of a message, themes from anonymised feedback, draft requirements, or a draft communication plan.","Use the AI Evidence Log in the menu to record each use as you go. Rejecting a poor suggestion and explaining why is strong evidence."]},
+ {id:"s5",title:"Gathering user needs",ksb:["K22","B3"],
+  intro:"Explain how you gathered, or would gather, user needs. Say why your method suits your stakeholders, what evidence it gives you, and what its limitations are.",
+  include:["The method or methods you chose (for example short interviews, Microsoft Forms, team discussion, observation, reviewing feedback, complaints, queries, delays, duplication or errors)","Why each method suits your stakeholders","What type of evidence each method gives you","The limitations (for example a small sample, or stakeholders you could not reach)"],
+  marker:["K22: a justified choice of method, not just a list","An honest limitation and how it affects your findings"],
+  tips:["Put your questions or Form, and an anonymised summary of the answers, in the appendix. This is also evidence of B3."]},
+ {id:"s6",title:"User needs, concerns and support",ksb:["K21","K22","S22"],
+  intro:"Analyse what your users and stakeholders need from the solution, what worries them and what support they will need. Include both technical and non-technical views.",
+  include:["What users are trying to do, and what slows them down","What information they need","What would make the process easier and safer","What would help users trust the solution","What concerns stakeholders have","What support or training users need","What accessibility needs to consider","What communication would help different stakeholders understand the change"],
+  marker:["K21: how you will help users understand, trust and use the solution safely","K22 and S22: needs and support adapted for different users, technical and non-technical"],
+  tips:["Example from the brief: a technical stakeholder may need clarity about data access, permissions or testing. A non-technical user may need reassurance about accuracy, workload, human review and how their role changes.","Treat concerns as useful evidence, not as resistance."]},
+ {id:"s7",title:"Turning feedback into requirements",ksb:["K21","K22"],
+  intro:"Turn what people told you into clear requirements, in a table. Use the Requirements Builder in the menu to draft it.",
+  include:["A table with these columns: Stakeholder or user group | Feedback, need or concern | Requirement | Priority | Reason for priority","Requirements that are specific and testable","At least one requirement about human review, data or safety","At least one requirement about support, training or communication"],
+  marker:["K22: requirements that clearly come from stakeholder feedback","Requirements someone could design and test against"],
+  tips:["From the brief: \"I do not want AI sending messages without checking\" becomes \"All AI-generated external communication must be reviewed and approved by a human before it is sent.\"","Avoid vague words like \"easy\" or \"accurate\". Ask yourself: how would someone test this?"]},
+ {id:"s8",title:"Prioritising requirements (MoSCoW)",ksb:["K22"],
+  intro:"Prioritise your requirements before design begins, and explain which ones are essential and why. This is where you show professional judgement.",
+  include:["Sort requirements into Must have, Should have, Could have and Will not have yet","Explain why each Must have is essential","Explain why some requirements can wait"],
+  marker:["Must haves justified by safety, data protection, human review, accessibility, accuracy checks, audit trail, approval steps or user training"],
+  tips:["Ask yourself: if the budget was cut in half, what would you drop first, and what could never be dropped?"]},
+ {id:"s9",title:"Engagement and communication plan",ksb:["S4","S20","S22","K19"],
+  intro:"Create a short plan showing how you will engage and communicate with each stakeholder group, adapted to each audience.",
+  include:["Who needs to be engaged","What they need to know","The most suitable method of communication","How often they should be updated","What concerns need to be addressed","What support or training they may need","How feedback will be captured","How feedback will influence the next stage"],
+  marker:["S4 and S22: methods and language adapted for each audience","Technical stakeholders get detail on systems, data, testing and controls; non-technical users get clear explanations, examples, demonstrations and reassurance"],
+  tips:["A table with one row per stakeholder group and one column for each of the eight points works well.","Match it to your Mendelow map: \"manage closely\" groups need more frequent, two-way contact."]},
+ {id:"s10",title:"Recommendation and next steps",ksb:["S20"],
+  intro:"Make one clear recommendation about stakeholder engagement before the project moves into design, and justify it with evidence.",
+  include:["Choose one: Proceed to solution design; Proceed with further engagement; Pause for additional review; Redesign the proposal; Reject or replace the idea","Justify it using your stakeholder map, user needs review, AI-supported analysis, requirements table and engagement plan","Say what happens next"],
+  marker:["A recommendation that follows from your evidence, not just your preference"],
+  tips:["A cautious recommendation with strong reasons scores better than an optimistic one with weak reasons."]},
+ {id:"s11",title:"Professional reflection",ksb:["B3","B4"],
+  intro:"Reflect honestly on what you learned. This section shows your professional judgement, collaboration and responsible use of AI.",
+  include:["What changed from your original view of the idea","Which stakeholder views were most useful","What concerns or risks were identified","How AI helped you organise, plan or improve your work","Where the AI output needed checking or editing","What you would do differently next time","What still needs to happen before solution design begins"],
+  marker:["B3 and B4: how you worked with others and supported people through the change"],
+  tips:["Write in the first person and be specific. \"The admin team's feedback changed my second requirement\" is much stronger than \"I listened to feedback\"."]},
+ {id:"s12",title:"Evidence appendix and references",ksb:["S4","B3","B4"],
+  intro:"Your appendix proves the S and B criteria. Refer to each item from the main report (for example, \"see Appendix C\"). Do not include confidential, personal or sensitive information.",
+  include:["Stakeholder list and Mendelow's Matrix","Interview or discussion questions, Microsoft Forms questions or summary results","User needs notes and anonymised feedback themes","AI prompts and outputs, plus notes showing how you checked and edited them","Screenshots of non-confidential AI use","Requirements table and MoSCoW table","Communication or engagement plan","Professional reflection log","A short reference list of sources, policies and tools used"],
+  marker:[],tips:["Anything you put into an AI tool must be anonymised, fictional or a general description of the process."]}
+];
+const KSB_MAP = [
+ ["K19","1, 2, 3, 9","Stakeholders identified, mapped and explained for this change; why engagement matters"],
+ ["K21","4, 6, 7","How users will be supported to understand, trust and use the solution safely"],
+ ["K22","5, 6, 7, 8","Methods justified with limitations; needs turned into prioritised requirements"],
+ ["S4","9, appendix","Communication suited to each audience, with examples"],
+ ["S20","3, 4, 9, 10","Engagement actions and a justified recommendation"],
+ ["S22","6, 9","Communication and support adapted for different users"],
+ ["B3","4, 5, 11, appendix","Evidence of working with others: notes, Forms, feedback that changed something"],
+ ["B4","11, appendix","Evidence of supporting others through the change"]
+];
+const SUBMIT = ["I have a title page and used headings, short paragraphs and tables","I have used PEEL paragraphs and kept bullet points to a minimum","I have covered every section from 1 to 11","My Mendelow placements are explained for this change","My AI section includes all six pieces of evidence","My requirements table has all five columns","My communication plan is adapted for different audiences","I have made one clear recommendation and justified it with evidence","Every screenshot is referred to in the report and placed in the appendix","I have removed all personal, confidential or sensitive information","I have added a short reference list"];
+const PRI = ["Must have","Should have","Could have","Will not have yet"];
+
+/* storage */
+let store = {};
+try{ store = JSON.parse(localStorage.getItem("m5guide")||"{}"); }catch(e){}
+function save(){ try{ localStorage.setItem("m5guide", JSON.stringify(store)); }catch(e){} updateProgress(); }
+store.checks = store.checks||{}; store.reqs = store.reqs||[]; store.ai = store.ai||[];
+
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const chip = k => `<button class="chip ${k[0]==='S'?'s':k[0]==='B'?'b':''}" data-ksb="${k}" title="${esc(KSB[k])}">${k}</button>`;
+function checklist(prefix, items){
+  return `<ul class="check">${items.map((x,i)=>{const id=prefix+"-"+i;return `<li><input type="checkbox" id="${id}" data-c="${id}" ${store.checks[id]?"checked":""}><label for="${id}">${esc(x)}</label></li>`}).join("")}</ul>`;
+}
+function sectionDone(s){ return s.include.every((_,i)=>store.checks[s.id+"-"+i]); }
+const NUM = 11;
+
+/* views */
+const VIEWS = [];
+VIEWS.push({id:"overview",grp:"Start here",label:"Overview",render:()=>`
+ <h2>Overview</h2>
+ <p class="lead">Use this guide alongside the assessment brief. Work through each section, tick off what you have written, and use the checklists before you submit. Your ticks are saved in this browser only.</p>
+ <div class="card"><b>The task in one line:</b> write a professional workplace report showing who is affected by your AI or automation idea, what they need, and how their feedback (and some safe, checked AI support) shapes clear, prioritised requirements and a communication plan.</div>
+ <div class="card"><b>Format:</b> a professional workplace report with a title page, headings, short paragraphs, tables where useful, an evidence appendix and a short reference list.<br><b>Themes:</b> A: HR, B: Recruitment, C: Leadership and Operations, D: Training and Learning Support.<br><b>Must include:</b> a stakeholder map, a user needs and requirements review, evidence of safe AI use, and an engagement or communication plan.<br><b>KSBs:</b> K19, K21, K22, S4, S20, S22, B3, B4</div>
+ <h3>Report sections</h3>
+ <div class="grid">${SECTIONS.map((s,i)=>`<div class="tile ${sectionDone(s)?"done":""}" data-go="${s.id}"><div class="n">${i<NUM?"Section "+(i+1):"Appendix"}</div><div class="t">${esc(s.title)}</div><div class="chips">${s.ksb.map(chip).join("")}</div><div class="st">${sectionDone(s)?"✓ Complete":s.include.filter((_,j)=>store.checks[s.id+"-"+j]).length+" of "+s.include.length+" ticked"}</div></div>`).join("")}</div>
+ <div class="tip"><b>The big idea this month:</b> people, not just technology, should shape your solution. Every section should show whose views you gathered and what changed because of them. Tap any KSB badge to see what it means.</div>`});
+VIEWS.push({id:"style",grp:"Start here",label:"Writing style (PEEL)",render:()=>`
+ <h2>Writing style for a Level 4 report</h2>
+ <p class="lead">At Level 4 your work should follow a professional report format. Use well-structured paragraphs for explanations and evaluations. Bullet points and tables are fine for short lists, your stakeholder table, requirements and communication plan.</p>
+ <h3>Use PEEL for every paragraph</h3><p>Tap each letter to see what it means and where it appears in the example.</p>
+ <div class="peel">${[["P","Point"],["E","Evidence"],["E","Explain"],["L","Link"]].map((x,i)=>`<button data-peel="${i}"><span class="L">${x[0]}</span>${x[1]}</button>`).join("")}</div>
+ <div class="card" id="peelOut"><i>Select a letter above.</i></div>
+ <h3>Example paragraph</h3>
+ <div class="card ex" id="peelEx"><span data-p="0">The data protection lead should be managed as a "keep satisfied" stakeholder because they have high power over this change but little day-to-day interest in it.</span> <span data-p="1">They must approve a Data Protection Impact Assessment before any candidate data is processed by the new booking tool (see Appendix B).</span> <span data-p="2">This means that if they are not engaged early, they could delay or stop go-live, even though they will never use the tool themselves.</span> <span data-p="3">For this reason, my communication plan includes a short briefing on data storage and access before design begins, followed by updates at each approval point.</span></div>
+ <p style="color:var(--muted);font-size:13px"><i>The example is illustrative. Use your own organisation, stakeholders and evidence.</i></p>`});
+VIEWS.push({id:"marking",grp:"Start here",label:"How it is marked",render:()=>`
+ <h2>How the report is marked</h2>
+ <p class="lead">Each KSB is checked and its individual elements are ticked off one by one. Knowing this means you know exactly what the marker is looking for.</p>
+ <div class="grid">
+  <div class="card"><span class="chip">K</span><h3 style="margin-top:8px">Knowledge</h3>You explaining the situation. The marker needs to see that you understand each element named in the KSB, applied to your idea.</div>
+  <div class="card"><span class="chip s">S</span><h3 style="margin-top:8px">Skills</h3>Evidence that you actually did it: your map, questions, AI log, requirements and communication plan, referred to in the report and placed in the appendix.</div>
+  <div class="card"><span class="chip b">B</span><h3 style="margin-top:8px">Behaviours</h3>Shown through how you worked with people and supported them: anonymised notes, feedback that changed something, and your reflection.</div>
+ </div>
+ <h3>All KSBs in this assignment</h3>
+ <div class="tablewrap"><table><tr><th style="width:90px">KSB</th><th>Requirement</th></tr>${Object.entries(KSB).map(([k,v])=>`<tr><td>${chip(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table></div>`});
+SECTIONS.forEach((s,i)=>VIEWS.push({id:s.id,grp:"Report sections",label:(i<NUM?(i+1)+". ":"")+s.title,section:s,render:()=>`
+ <h2>${i<NUM?(i+1)+". ":""}${esc(s.title)}</h2>
+ ${s.ksb.length?`<div class="chips">${s.ksb.map(chip).join("")}</div>`:""}
+ <p class="lead">${esc(s.intro)}</p>
+ <div class="card"><b>What to include</b> <span style="color:var(--muted);font-size:13px">(tick as you write each part)</span>${checklist(s.id,s.include)}</div>
+ ${s.marker.length?`<div class="card"><b>What the marker looks for</b><ul class="plain">${s.marker.map(m=>`<li>${esc(m)}</li>`).join("")}</ul></div>`:""}
+ ${s.tips.map(t=>`<div class="tip"><b>Trainer tip</b><br>${esc(t)}</div>`).join("")}
+ ${i<SECTIONS.length-1?`<button class="btn ghost done-btn" data-go="${SECTIONS[i+1].id}">Next: ${esc(SECTIONS[i+1].title)} →</button>`:`<button class="btn ghost done-btn" data-go="ksb">Next: KSB checklist →</button>`}`}));
+VIEWS.push({id:"reqs",grp:"Tools",label:"Requirements Builder",render:renderReqs});
+VIEWS.push({id:"ailog",grp:"Tools",label:"AI Evidence Log",render:renderAi});
+VIEWS.push({id:"ksb",grp:"Tools",label:"KSB checklist",render:()=>`
+ <h2>KSB quick-reference checklist</h2><p class="lead">Tick each KSB once you are confident your report covers it.</p>
+ <div class="tablewrap"><table><tr><th style="width:44px"></th><th style="width:80px">KSB</th><th style="width:120px">Sections</th><th>Evidence the marker needs to see</th></tr>
+ ${KSB_MAP.map((r,i)=>{const id="ksb-"+i;return `<tr><td><input type="checkbox" id="${id}" data-c="${id}" ${store.checks[id]?"checked":""} style="width:17px;height:17px;accent-color:var(--teal)"></td><td>${chip(r[0])}</td><td>${r[1]}</td><td><label for="${id}">${esc(r[2])}</label></td></tr>`}).join("")}</table></div>`});
+VIEWS.push({id:"submit",grp:"Tools",label:"Before you submit",render:()=>`
+ <h2>Before you submit</h2><p class="lead">Run through this final check.</p>
+ <div class="card">${checklist("sub",SUBMIT)}</div>
+ <h3>Submitting on EOS One</h3>
+ <ul class="plain"><li>Log in to EOS One, go to <b>My courses</b> and find the module by name.</li><li>Open the <b>Post Work</b> section and complete the assignment section.</li><li>Click the first blue box, map the KSB criteria, then click <b>Submit</b>.</li></ul>
+ <h3>Keeping on track</h3>
+ <ul class="plain"><li><b>Off-the-job hours:</b> log your stakeholder conversations and research as off-the-job learning.</li><li><b>One-to-ones:</b> bring your draft and any questions to your next session with your trainer.</li><li><b>Questions:</b> contact your trainer by email at any time if you get stuck.</li></ul>
+ <div class="row"><button class="btn ghost" id="resetAll">Reset all my ticks</button></div>`});
+
+/* requirements builder */
+const VAGUE = /\b(easy|user[- ]friendly|quick|fast|accurate|simple|intuitive|better|improve[sd]?)\b/i;
+const priClass = p => p===0?"R":p===1?"A":p===2?"G":"N";
+function renderReqs(){
+ return `<h2>Requirements Builder</h2>
+ <p class="lead">Turn each piece of feedback into a requirement with a MoSCoW priority and a reason. Then copy the table into your report for sections 7 and 8.</p>
+ <div class="card"><form id="reqForm" class="form">
+  <div><label>Stakeholder or user group</label><input name="who" required placeholder="e.g. Hiring managers"></div>
+  <div><label>Priority (MoSCoW)</label><select name="pri">${PRI.map((p,i)=>`<option value="${i}">${p}</option>`).join("")}</select></div>
+  <div class="full"><label>Feedback, need or concern (in their words, anonymised)</label><textarea name="fb" rows="2" required placeholder="e.g. &quot;I don't want interviews booked when I'm out of the office.&quot;"></textarea></div>
+  <div class="full"><label>Requirement: what must the solution do?</label><textarea name="req" rows="2" required placeholder="e.g. The system must only offer interview slots from the hiring manager's live calendar."></textarea><div class="warn" id="vagueWarn" style="display:none">This requirement contains a vague word. Make it specific and testable: how would someone check it has been met?</div></div>
+  <div class="full"><label>Reason for priority</label><input name="why" required placeholder="e.g. Without it, bookings fail and managers lose trust in the tool"></div>
+  <div class="full row" style="margin-top:0"><button class="btn" type="submit">Add requirement</button></div>
+ </form></div>
+ <div id="reqTable"></div>`;
+}
+function drawReqs(){
+ const el=document.getElementById("reqTable"); if(!el) return;
+ if(!store.reqs.length){ el.innerHTML=`<p style="color:var(--muted)">No requirements added yet.</p>`; return; }
+ const counts=PRI.map((_,i)=>store.reqs.filter(r=>r.pri===i).length);
+ const rows=store.reqs.map((r,i)=>({r,i})).sort((a,b)=>a.r.pri-b.r.pri);
+ el.innerHTML=`<p>${PRI.map((p,i)=>`<span class="rag ${priClass(i)}">${p}: ${counts[i]}</span>`).join(" ")}</p>
+ ${counts[0]===0?`<p class="warn">You have no Must have requirements yet. Which requirements are essential for safety, data protection, human review or basic use?</p>`:""}
+ <div class="tablewrap"><table><tr><th>Stakeholder</th><th>Feedback, need or concern</th><th>Requirement</th><th>Priority</th><th>Reason for priority</th><th></th></tr>${rows.map(({r,i})=>`<tr><td>${esc(r.who)}</td><td>${esc(r.fb)}</td><td>${esc(r.req)}</td><td><span class="rag ${priClass(r.pri)}">${PRI[r.pri]}</span></td><td>${esc(r.why)}</td><td><button class="btn ghost sm" data-delreq="${i}">Remove</button></td></tr>`).join("")}</table></div>
+ <div class="row"><button class="btn" id="copyReqs">Copy table for Word or Excel</button><button class="btn ghost" id="clearReqs">Clear all</button></div>`;
+}
+/* AI evidence log */
+const PII = /[\w.+-]+@[\w-]+\.[\w.]+|(\+44\s?7\d{3}|\b07\d{3})\s?\d{3}\s?\d{3}\b/;
+function renderAi(){
+ return `<h2>AI Evidence Log</h2>
+ <p class="lead">Record each time you use AI for your stakeholder work. The columns match the six pieces of evidence section 4 asks for.</p>
+ <div class="card"><form id="aiForm" class="form">
+  <div><label>AI tool used</label><input name="tool" required placeholder="e.g. Microsoft Copilot (approved at work)"></div>
+  <div><label>What you used it for</label><input name="task" required placeholder="e.g. Draft stakeholder interview questions"></div>
+  <div class="full"><label>Prompt (general details only)</label><textarea name="prompt" rows="2" required></textarea><div class="warn" id="piiWarn" style="display:none">This looks like it contains an email address or phone number. Remove personal details before using any AI tool.</div></div>
+  <div class="full"><label>What the AI produced (short summary)</label><textarea name="out" rows="2" required></textarea></div>
+  <div class="full"><label>How you checked it, and what you accepted, changed or rejected (and why)</label><textarea name="check" rows="2" required></textarea></div>
+  <div class="full"><label>How you kept personal, confidential and sensitive information out</label><input name="safe" required placeholder="e.g. Described the process in general terms; no names or candidate details"></div>
+  <div class="full row" style="margin-top:0"><button class="btn" type="submit">Add to log</button></div>
+ </form></div>
+ <div id="aiTable"></div>`;
+}
+function drawAi(){
+ const el=document.getElementById("aiTable"); if(!el) return;
+ if(!store.ai.length){ el.innerHTML=`<p style="color:var(--muted)">No AI uses logged yet.</p>`; return; }
+ el.innerHTML=`<div class="tablewrap"><table><tr><th>Tool</th><th>Used for</th><th>Prompt</th><th>What AI produced</th><th>Checked, accepted, changed or rejected</th><th>Keeping data safe</th><th></th></tr>${store.ai.map((a,i)=>`<tr><td>${esc(a.tool)}</td><td>${esc(a.task)}</td><td>${esc(a.prompt)}</td><td>${esc(a.out)}</td><td>${esc(a.check)}</td><td>${esc(a.safe)}</td><td><button class="btn ghost sm" data-delai="${i}">Remove</button></td></tr>`).join("")}</table></div>
+ <div class="row"><button class="btn" id="copyAi">Copy log for Word or Excel</button><button class="btn ghost" id="clearAi">Clear all</button></div>`;
+}
+
+/* nav + routing */
+function buildNav(){
+ let html="",grp="";
+ VIEWS.forEach(v=>{ if(v.grp!==grp){grp=v.grp;html+=`<div class="grp">${grp}</div>`;} html+=`<button data-go="${v.id}" id="nav-${v.id}"><span>${esc(v.label)}</span>${v.section&&sectionDone(v.section)?'<span class="tick">✓</span>':""}</button>`; });
+ document.getElementById("nav").innerHTML=html;
+}
+let current="overview";
+function show(id){
+ const v=VIEWS.find(x=>x.id===id)||VIEWS[0]; current=v.id;
+ document.getElementById("main").innerHTML=`<section class="view active">${v.render()}</section>`;
+ buildNav(); document.getElementById("nav-"+v.id).classList.add("active");
+ if(v.id==="reqs") drawReqs();
+ if(v.id==="ailog") drawAi();
+ if(location.hash!=="#"+v.id) history.replaceState(null,"","#"+v.id);
+ window.scrollTo(0,0);
+}
+function updateProgress(){
+ let total=0,done=0;
+ SECTIONS.forEach(s=>s.include.forEach((_,i)=>{total++; if(store.checks[s.id+"-"+i]) done++;}));
+ KSB_MAP.forEach((_,i)=>{total++; if(store.checks["ksb-"+i]) done++;});
+ SUBMIT.forEach((_,i)=>{total++; if(store.checks["sub-"+i]) done++;});
+ const pct=Math.round(done/total*100);
+ document.getElementById("progBar").style.width=pct+"%";
+ document.getElementById("progTxt").textContent=pct+"% complete";
+}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2600);}
+function copyTsv(rows, ok){
+ const tsv=rows.map(r=>r.map(x=>String(x).replace(/\t|\n/g," ")).join("\t")).join("\n");
+ (navigator.clipboard?navigator.clipboard.writeText(tsv):Promise.reject()).then(()=>toast(ok)).catch(()=>toast("Copy was blocked. Select the table and copy it manually."));
+}
+
+document.addEventListener("click",e=>{
+ const go=e.target.closest("[data-go]"); if(go){ show(go.dataset.go); return; }
+ const c=e.target.closest("[data-ksb]"); if(c){ toast(c.dataset.ksb+": "+KSB[c.dataset.ksb]); e.stopPropagation(); return; }
+ const p=e.target.closest("[data-peel]"); if(p){
+  const i=+p.dataset.peel, D=[["Point","State the point you are making. Who is the stakeholder, what is the need or what is the decision?"],["Evidence","Back it up with your own evidence: interview notes, Form results, your Mendelow map, a policy, or a reliable source. Refer to the appendix."],["Explain","Explain what the evidence means and why it matters for your idea. Where the brief asks you to evaluate, give your own judgement."],["Link","Link it back to the next stage: a requirement, a priority, your communication plan or your recommendation."]];
+  document.querySelectorAll("[data-peel]").forEach(b=>b.classList.toggle("on",b===p));
+  document.getElementById("peelOut").innerHTML=`<b style="color:var(--navy)">${D[i][0]}</b><br>${D[i][1]}`;
+  document.querySelectorAll("#peelEx span").forEach(s=>s.classList.toggle("hl",+s.dataset.p===i)); return; }
+ const dr=e.target.closest("[data-delreq]"); if(dr){ store.reqs.splice(+dr.dataset.delreq,1); save(); drawReqs(); return; }
+ const da=e.target.closest("[data-delai]"); if(da){ store.ai.splice(+da.dataset.delai,1); save(); drawAi(); return; }
+ if(e.target.id==="clearReqs"){ store.reqs=[]; save(); drawReqs(); return; }
+ if(e.target.id==="clearAi"){ store.ai=[]; save(); drawAi(); return; }
+ if(e.target.id==="copyReqs"){ copyTsv([["Stakeholder or user group","Feedback, need or concern","Requirement","Priority","Reason for priority"]].concat(store.reqs.slice().sort((a,b)=>a.pri-b.pri).map(r=>[r.who,r.fb,r.req,PRI[r.pri],r.why])),"Copied. Paste into Word or Excel."); return; }
+ if(e.target.id==="copyAi"){ copyTsv([["AI tool","Used for","Prompt","What AI produced","Checked, accepted, changed or rejected","Keeping data safe"]].concat(store.ai.map(a=>[a.tool,a.task,a.prompt,a.out,a.check,a.safe])),"Copied. Paste into Word or Excel."); return; }
+ if(e.target.id==="resetAll"){ store.checks={}; save(); show(current); toast("Ticks reset"); }
+});
+document.addEventListener("change",e=>{
+ const c=e.target.dataset&&e.target.dataset.c; if(c){ store.checks[c]=e.target.checked; save(); buildNav(); const a=document.getElementById("nav-"+current); if(a) a.classList.add("active"); }
+});
+document.addEventListener("input",e=>{
+ const f=e.target.form; if(!f) return;
+ if(f.id==="reqForm") document.getElementById("vagueWarn").style.display=VAGUE.test(f.req.value)?"block":"none";
+ if(f.id==="aiForm") document.getElementById("piiWarn").style.display=PII.test(f.prompt.value)?"block":"none";
+});
+document.addEventListener("submit",e=>{
+ const f=e.target; e.preventDefault();
+ if(f.id==="reqForm"){ store.reqs.push({who:f.who.value,fb:f.fb.value,req:f.req.value,pri:+f.pri.value,why:f.why.value}); save(); f.reset(); document.getElementById("vagueWarn").style.display="none"; drawReqs(); toast("Requirement added"); }
+ if(f.id==="aiForm"){ if(PII.test(f.prompt.value)){ document.getElementById("piiWarn").style.display="block"; f.prompt.focus(); return; } store.ai.push({tool:f.tool.value,task:f.task.value,prompt:f.prompt.value,out:f.out.value,check:f.check.value,safe:f.safe.value}); save(); f.reset(); drawAi(); toast("Added to log"); }
+});
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h&&h!==current) show(h);});
+show(location.hash.slice(1)||"overview"); updateProgress();
+</script>
+</body>
+</html>
+
+</body></html>
